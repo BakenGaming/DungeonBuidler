@@ -41,5 +41,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Buttons
+    uniqueID: 673040631
+    locked: 0
+  - name: Node
+    uniqueID: 1100617251
+    locked: 0
+  - name: Light
+    uniqueID: 4090414921
+    locked: 0
+  - name: Logic
+    uniqueID: 1694733911
+    locked: 0
   m_RenderingLayers:
   - Default
