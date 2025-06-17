@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 namespace CodeMonkey.Utils {
 
@@ -26,6 +27,8 @@ namespace CodeMonkey.Utils {
         private static readonly Vector3 Vector3zero = Vector3.zero;
         private static readonly Vector3 Vector3one = Vector3.one;
         private static readonly Vector3 Vector3yDown = new Vector3(0,-1);
+        private static GameControls _controller;
+        private static InputAction _mousePos;
 
         public const int sortingOrderDefault = 5000;
         
@@ -229,21 +232,29 @@ namespace CodeMonkey.Utils {
             return Parse_Int(txt, -1);
 	    }
 
-
-
+        //Enable new input controls
+        public static void EnableMouse()
+        {
+            _controller = new GameControls();
+            _mousePos = _controller.TopDownControls.MousePosition;
+            _mousePos.Enable();
+        }
+        
         // Get Mouse Position in World with Z = 0f
-        public static Vector3 GetMouseWorldPosition() {
-            Vector3 vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
+        public static Vector3 GetMouseWorldPosition()
+        {
+            EnableMouse();
+            Vector3 vec = GetMouseWorldPositionWithZ(_mousePos.ReadValue<Vector2>(), Camera.main);
             vec.z = 0f;
             return vec;
         }
 
         public static Vector3 GetMouseWorldPositionWithZ() {
-            return GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
+            return GetMouseWorldPositionWithZ(_mousePos.ReadValue<Vector2>(), Camera.main);
         }
 
         public static Vector3 GetMouseWorldPositionWithZ(Camera worldCamera) {
-            return GetMouseWorldPositionWithZ(Input.mousePosition, worldCamera);
+            return GetMouseWorldPositionWithZ(_mousePos.ReadValue<Vector2>(), worldCamera);
         }
 
         public static Vector3 GetMouseWorldPositionWithZ(Vector3 screenPosition, Camera worldCamera) {

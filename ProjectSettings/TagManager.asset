@@ -41,17 +41,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Buttons
-    uniqueID: 673040631
-    locked: 0
-  - name: Node
+  - name: Ground
     uniqueID: 1100617251
     locked: 0
-  - name: Light
-    uniqueID: 4090414921
+  - name: Pickup
+    uniqueID: 3990699217
     locked: 0
-  - name: Logic
-    uniqueID: 1694733911
+  - name: Enemy Bullet
+    uniqueID: 3600479163
+    locked: 0
+  - name: Enemy
+    uniqueID: 848657993
+    locked: 0
+  - name: Player Bullet
+    uniqueID: 1858666585
+    locked: 0
+  - name: Player
+    uniqueID: 4090414921
     locked: 0
   m_RenderingLayers:
   - Default

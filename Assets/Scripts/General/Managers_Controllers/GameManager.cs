@@ -10,22 +10,24 @@ public class GameManager : MonoBehaviour
     public static GameManager i { get { return _i; } }
     [SerializeField] private Transform sysMessagePoint;
     [SerializeField] private Transform spawnPoint;
+    private EquippedProjectileHandler _projectileHandler;
     private GameObject playerGO;
     private bool isPaused;
 
 
     #endregion
-    
+
     #region Initialize
-    private void Awake() 
+    private void Awake()
     {
-        _i = this;  
-        SetupObjectPools();  
+        _i = this;
+        SetupObjectPools();
         Initialize();
     }
 
-    private void Initialize() 
+    private void Initialize()
     {
+        _projectileHandler = GetComponent<EquippedProjectileHandler>();
         SpawnPlayerObject();
     }
 
@@ -40,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
         //Do the below for all objects that will need pooled for use
         //ObjectPooler.SetupPool(OBJECT, SIZE, "NAME") == Object is pulled from GameAssets, Setup object with a SO that contains size and name
-        
+
         //The below is placed in location where object is needed from pool
         //==============================
         //PREFAB_SCRIPT instance = ObjectPooler.DequeueObject<PREFAB_SCRIPT>("NAME");
@@ -50,11 +52,12 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public void PauseGame(){if(isPaused) return; else isPaused = true;}
-    public void UnPauseGame(){if(isPaused) isPaused = false; else return;}
-    
-    public Transform GetSysMessagePoint(){ return sysMessagePoint;}
+    public void PauseGame() { if (isPaused) return; else isPaused = true; }
+    public void UnPauseGame() { if (isPaused) isPaused = false; else return; }
+
+    public Transform GetSysMessagePoint() { return sysMessagePoint; }
     public GameObject GetPlayerGO() { return playerGO; }
     public bool GetIsPaused() { return isPaused; }
+    public EquippedProjectileHandler GetProjectileHandler() { return _projectileHandler; }
 
 }

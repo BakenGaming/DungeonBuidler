@@ -366,6 +366,15 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""94215af7-71d3-43cf-8662-35d7e5482dea"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -588,6 +597,17 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3106487c-37fe-41dc-ae13-9d3119b8f268"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -677,6 +697,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         m_TopDownControls_Interact = m_TopDownControls.FindAction("Interact", throwIfNotFound: true);
         m_TopDownControls_Pause = m_TopDownControls.FindAction("Pause", throwIfNotFound: true);
         m_TopDownControls_Dash = m_TopDownControls.FindAction("Dash", throwIfNotFound: true);
+        m_TopDownControls_MousePosition = m_TopDownControls.FindAction("MousePosition", throwIfNotFound: true);
         // UIControls
         m_UIControls = asset.FindActionMap("UIControls", throwIfNotFound: true);
         m_UIControls_Accept = m_UIControls.FindAction("Accept", throwIfNotFound: true);
@@ -897,6 +918,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_TopDownControls_Interact;
     private readonly InputAction m_TopDownControls_Pause;
     private readonly InputAction m_TopDownControls_Dash;
+    private readonly InputAction m_TopDownControls_MousePosition;
     /// <summary>
     /// Provides access to input actions defined in input action map "TopDownControls".
     /// </summary>
@@ -928,6 +950,10 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "TopDownControls/Dash".
         /// </summary>
         public InputAction @Dash => m_Wrapper.m_TopDownControls_Dash;
+        /// <summary>
+        /// Provides access to the underlying input action "TopDownControls/MousePosition".
+        /// </summary>
+        public InputAction @MousePosition => m_Wrapper.m_TopDownControls_MousePosition;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -969,6 +995,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
+            @MousePosition.started += instance.OnMousePosition;
+            @MousePosition.performed += instance.OnMousePosition;
+            @MousePosition.canceled += instance.OnMousePosition;
         }
 
         /// <summary>
@@ -995,6 +1024,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
+            @MousePosition.started -= instance.OnMousePosition;
+            @MousePosition.performed -= instance.OnMousePosition;
+            @MousePosition.canceled -= instance.OnMousePosition;
         }
 
         /// <summary>
@@ -1213,6 +1245,13 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnDash(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MousePosition" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMousePosition(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UIControls" which allows adding and removing callbacks.
