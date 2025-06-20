@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerHandler : MonoBehaviour, IHandler
 {
     #region Variables
     [SerializeField] private PlayerStatsSO playerStatsSO;
+    [SerializeField] private StaffHandler staffHandler;
 
     private StatSystem _statSystem;
     private HealthSystem _healthSystem;
@@ -21,15 +23,9 @@ public class PlayerHandler : MonoBehaviour, IHandler
     #endregion
 
     #region Get Functions
-    public HealthSystem GetHealthSystem()
-    {
-        return _healthSystem;
-    }
-
-    public StatSystem GetStatSystem()
-    {
-        return _statSystem;
-    }
+    public HealthSystem GetHealthSystem() { return _healthSystem; }
+    public StatSystem GetStatSystem() { return _statSystem; }
+    public StaffHandler GetStaffHandler() { return staffHandler; }
 
     #endregion
 
@@ -40,7 +36,7 @@ public class PlayerHandler : MonoBehaviour, IHandler
         throw new System.NotImplementedException();
     }
 
-    public void UpdateHealth()
+    public void UpdateHealth(int amount)
     {
         throw new System.NotImplementedException();
     }
@@ -52,7 +48,8 @@ public class PlayerHandler : MonoBehaviour, IHandler
         _statSystem = new StatSystem(playerStatsSO);
         _healthSystem = new HealthSystem(_statSystem.GetPlayerHealth());
         GetComponent<IInputHandler>().Initialize();
-        GetComponent<IAttackHandler>().Initialize();
+        staffHandler.EquipStaff(GameManager.i.GetStartingStaff(), staffHandler.gameObject.transform);
+        GetComponent<IAttackHandler>().Initialize(staffHandler.GetStaffObject(), staffHandler.GetCastPoint());
     }
     #endregion
 }

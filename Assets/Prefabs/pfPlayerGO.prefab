@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2425509457770384088
+--- !u!1 &883742703294056842
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,29 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1637465213593671035}
+  - component: {fileID: 645461812459212885}
+  - component: {fileID: 1692455750658485725}
   m_Layer: 6
-  m_Name: FirePoint
+  m_Name: StaffHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1637465213593671035
+--- !u!4 &645461812459212885
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2425509457770384088}
+  m_GameObject: {fileID: 883742703294056842}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.289, y: 0.029, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4179146980473775623}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1692455750658485725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883742703294056842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad8c7933b6785d419fda623b56c8341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4385008038597727790
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,9 +53,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4179146980473775623}
-  - component: {fileID: 762957680338738797}
   - component: {fileID: 613439643916961298}
   - component: {fileID: 2051163778061998851}
+  - component: {fileID: 762957680338738797}
   - component: {fileID: 4295508847623627386}
   - component: {fileID: 3021061108382072349}
   m_Layer: 6
@@ -66,22 +79,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1904755010495948113}
-  - {fileID: 1637465213593671035}
+  - {fileID: 645461812459212885}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &762957680338738797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4385008038597727790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a41743eedac0874ca709893d8e8a8a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStatsSO: {fileID: 11400000, guid: 21558c167efd3644980d4e3b7913bad0, type: 2}
 --- !u!50 &613439643916961298
 Rigidbody2D:
   serializedVersion: 5
@@ -143,7 +143,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.03512472, y: -0.0108076185}
+  m_Offset: {x: -0.02414465, y: 0.07191706}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -153,8 +153,22 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.55148375, y: 0.9243467}
+  m_Size: {x: 1.6275547, y: 2.471826}
   m_EdgeRadius: 0
+--- !u!114 &762957680338738797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4385008038597727790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a41743eedac0874ca709893d8e8a8a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStatsSO: {fileID: 11400000, guid: 21558c167efd3644980d4e3b7913bad0, type: 2}
+  staffHandler: {fileID: 1692455750658485725}
 --- !u!114 &4295508847623627386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +269,7 @@ SpriteRenderer:
   m_SortingLayerID: -204552375
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1954624946, guid: e98dbdf1f4f6853438c53f3d0465670b, type: 3}
+  m_Sprite: {fileID: -2311659948842064771, guid: 685cf338a6dda8d4caea9aea46448ad1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

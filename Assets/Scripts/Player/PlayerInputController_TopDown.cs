@@ -64,7 +64,7 @@ public class PlayerInputController_TopDown : MonoBehaviour, IInputHandler
     #region Input Handling
     private void HandleAttackInput(InputAction.CallbackContext context)
     {
-        OnPlayerAttack(UtilsClass.GetMouseWorldPosition());
+        OnPlayerAttack(mainCam.ScreenToWorldPoint(_mousePos.ReadValue<Vector2>()));
     }
     private void HandleDashInput(InputAction.CallbackContext context)
     {
@@ -110,11 +110,11 @@ public class PlayerInputController_TopDown : MonoBehaviour, IInputHandler
     {
         if (mPosX < sPtX)
         {
-            transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = false;
+            transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = true;
         }
         else
         {
-            transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = true;
+            transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = false;
         }
     }
     #endregion

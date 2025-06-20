@@ -47,13 +47,13 @@ TagManager:
   - name: Pickup
     uniqueID: 3990699217
     locked: 0
-  - name: Enemy Bullet
+  - name: Enemy Projectile
     uniqueID: 3600479163
     locked: 0
   - name: Enemy
     uniqueID: 848657993
     locked: 0
-  - name: Player Bullet
+  - name: Player Projectile
     uniqueID: 1858666585
     locked: 0
   - name: Player

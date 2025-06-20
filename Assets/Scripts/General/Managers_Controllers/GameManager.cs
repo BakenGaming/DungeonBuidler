@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     public static GameManager i { get { return _i; } }
     [SerializeField] private Transform sysMessagePoint;
     [SerializeField] private Transform spawnPoint;
-    private EquippedProjectileHandler _projectileHandler;
+    [SerializeField] private StaffSO startingStaff;
+    private EquippedSpellHandler spellHandler;
+    private StaffHandler staffHandler;
     private GameObject playerGO;
     private bool isPaused;
 
@@ -27,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     private void Initialize()
     {
-        _projectileHandler = GetComponent<EquippedProjectileHandler>();
+        spellHandler = GetComponent<EquippedSpellHandler>();
         SpawnPlayerObject();
     }
 
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour
     public Transform GetSysMessagePoint() { return sysMessagePoint; }
     public GameObject GetPlayerGO() { return playerGO; }
     public bool GetIsPaused() { return isPaused; }
-    public EquippedProjectileHandler GetProjectileHandler() { return _projectileHandler; }
+    public EquippedSpellHandler GetSpellHandler() { return spellHandler; }
+    public StaffSO GetStartingStaff() { return startingStaff; }
 
 }

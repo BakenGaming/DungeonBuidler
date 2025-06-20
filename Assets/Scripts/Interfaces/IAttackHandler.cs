@@ -5,5 +5,5 @@ using UnityEngine;
 
 public interface IAttackHandler
 {
-    public void Initialize();
+    public void Initialize(GameObject _obj, Transform _trans);
 }
