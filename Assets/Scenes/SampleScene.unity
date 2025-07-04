@@ -6069,6 +6069,7 @@ GameObject:
   - component: {fileID: 403987359}
   - component: {fileID: 403987358}
   - component: {fileID: 403987357}
+  - component: {fileID: 403987360}
   m_Layer: 7
   m_Name: pfEnemy
   m_TagString: Untagged
@@ -6088,7 +6089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0d596704f6c014aab3d3d0cc7a6097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStatsSO: {fileID: 0}
+  enemyStatsSO: {fileID: 11400000, guid: 6236253640693d94bbe4e0ce1ff5eaed, type: 2}
 --- !u!61 &403987358
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6151,6 +6152,33 @@ Transform:
   - {fileID: 560297260}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &403987360
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403987356}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

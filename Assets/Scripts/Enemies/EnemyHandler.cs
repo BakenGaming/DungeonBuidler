@@ -1,10 +1,14 @@
 using UnityEngine;
 
-public class EnemyHandler : MonoBehaviour, IHandler
+public class EnemyHandler : MonoBehaviour, IHandler, IDamageable
 {
     [SerializeField] private EnemyStatsSO enemyStatsSO;
     private HealthSystem healthSystem;
     private StatSystem statSystem;
+    void Start()
+    {
+        Initialize();
+    }
 
     public void Initialize()
     {
@@ -21,11 +25,19 @@ public class EnemyHandler : MonoBehaviour, IHandler
         }
     }
 
-    public HealthSystem GetHealthSystem() { return healthSystem; }
-
-    public StatSystem GetStatSystem() { return statSystem; }
     public void HandleDeath()
     {
         Destroy(gameObject);
     }
+
+    public void TakeDamage(int _damage)
+    {
+        healthSystem.LoseHealth(_damage);
+        if(healthSystem.GetCurrentHealth() <= 0)
+            HandleDeath();
+    }
+
+    public HealthSystem GetHealthSystem() { return healthSystem; }
+
+    public StatSystem GetStatSystem() { return statSystem; }
 }

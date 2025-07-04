@@ -16,5 +16,5 @@ MonoBehaviour:
   fireRate: 0.3
   lifetime: 1
   mpCost: 3
-  damage: 10
+  damage: 5
   additionalEffect: {fileID: 0}

@@ -7,5 +7,4 @@ public class PlayerStatsSO : ScriptableObject
 {
     public int health;
     public float moveSpeed;
-    public float jumpPower;
 }
